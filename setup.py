@@ -6,9 +6,21 @@ with open("README.md", "r") as fh:
 
 WORKING_PATH = os.getcwd()
 
+def search_files(subfile,list_a):
+    if os.path.isdir(subfile):
+        for new_file in os.listdir(subfile):
+            search_files(os.path.join(subfile, new_file), list_a)
+    else:
+        if "migrated" not in subfile:
+            list_a.append(subfile)
+list_files=[]
+search_files(os.path.join(WORKING_PATH,"tudthemes","themes"), list_files)
+
+
+
 setuptools.setup(
     name="tudthemes",
-    version="0.0.4",
+    version="0.0.5",
     author="Arne-Lukas Fietkau",
     author_email="arne-lukas.fietkau@tu-dresden.de",
     description="TU Dresden Corporate Design for Jupyter Notebooks",
@@ -28,13 +40,7 @@ setuptools.setup(
         'Tracker': 'https://github.com/TUD-STKS/tud-themes/issues',
     },
     package_dir={'tudthemes': 'tudthemes'},
-    package_data= {
-        'tudthemes': [
-                    os.path.join(WORKING_PATH,'tudthemes/themes/bright/custom/*'),
-                    os.path.join(WORKING_PATH,'tudthemes/themes/dark/custom/*'),
-                    os.path.join(WORKING_PATH,'tudthemes/themes/default/custom/*')
-                    ]
-    },
+    package_data = {"tudthemes": list_files},
     include_package_data=True,
     python_requires='>=3.7',
 )

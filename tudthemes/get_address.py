@@ -3,6 +3,10 @@ from pathlib import Path
 
 
 def get_address(theme=None):
+    '''
+    List all integrated themes and check if requested theme exists.
+    If True or None the path to the custom folder is returned.
+    '''
     pkg_root = Path(os.path.dirname(__file__))
     theme_folder = Path("themes")
     current_themes = [filename for filename in os.listdir(pkg_root / theme_folder) 
@@ -10,10 +14,9 @@ def get_address(theme=None):
     if "common" in current_themes:
         current_themes.remove("common")
 
-    # Prüfe, ob choose_theme korrekten Wert hat
+    # check if choose_theme exists
     if theme is not None:
-        assert (theme in current_themes), "the theme does not exist"
+        assert (theme in current_themes), "The theme does not exist."
     else:
         theme = "default"
-    return str(pkg_root / theme_folder / Path(theme))
-    
+    return pkg_root / theme_folder / Path(theme)

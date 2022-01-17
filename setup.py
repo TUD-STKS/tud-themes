@@ -4,15 +4,15 @@ import os
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-WORKING_PATH = os.getcwd()
-
 def search_files(subfile,list_a):
     if os.path.isdir(subfile):
         for new_file in os.listdir(subfile):
             search_files(os.path.join(subfile, new_file), list_a)
     else:
-        if "migrated" not in subfile:
+        if not (("common.css" in subfile) or ("migrated" in subfile)):
             list_a.append(subfile)
+
+WORKING_PATH = os.getcwd()
 list_files=[]
 search_files(os.path.join(WORKING_PATH,"tudthemes","themes"), list_files)
 
@@ -20,7 +20,7 @@ search_files(os.path.join(WORKING_PATH,"tudthemes","themes"), list_files)
 
 setuptools.setup(
     name="tudthemes",
-    version="0.0.5",
+    version="0.0.6",
     author="Arne-Lukas Fietkau",
     author_email="arne-lukas.fietkau@tu-dresden.de",
     description="TU Dresden Corporate Design for Jupyter Notebooks",

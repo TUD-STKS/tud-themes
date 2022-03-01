@@ -24,7 +24,7 @@ search_files(os.path.join(WORKING_PATH, "tudthemes", "themes"), files)
 
 
 setuptools.setup(
-    name="tudthemes",
+    name="tud-themes",
     version="0.1",
     author="Arne-Lukas Fietkau",
     author_email="arne-lukas.fietkau@tu-dresden.de",
@@ -44,7 +44,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
         "Intended Audience :: Science/Research",
     ],
-    keywords='tudthemes',
+    keywords='tud-themes',
     project_urls={
         'Tracker': 'https://github.com/TUD-STKS/tud-themes/issues',
     },

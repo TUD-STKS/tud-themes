@@ -25,7 +25,7 @@ search_files(os.path.join(WORKING_PATH, "tudthemes", "themes"), files)
 
 setuptools.setup(
     name="tudthemes",
-    version="0.0.7",
+    version="0.1",
     author="Arne-Lukas Fietkau",
     author_email="arne-lukas.fietkau@tu-dresden.de",
     license='MIT',

@@ -4,23 +4,28 @@ import os
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-WORKING_PATH = os.getcwd()
 
-def search_files(subfile,list_a):
-    if os.path.isdir(subfile):
-        for new_file in os.listdir(subfile):
-            search_files(os.path.join(subfile, new_file), list_a)
+def search_files(sub_folder, list_files):
+    """
+    Creates a list of all existing files in 'sub_folder' with the exceptions
+    'migrated' and 'common.css'.
+    """
+    if os.path.isdir(sub_folder):
+        for new_folder in os.listdir(sub_folder):
+            search_files(os.path.join(sub_folder, new_folder), list_files)
     else:
-        if "migrated" not in subfile:
-            list_a.append(subfile)
-list_files=[]
-search_files(os.path.join(WORKING_PATH,"tudthemes","themes"), list_files)
+        if not (("common.css" in sub_folder) or ("migrated" in sub_folder)):
+            list_files.append(sub_folder)
 
+
+WORKING_PATH = os.getcwd()
+files = []
+search_files(os.path.join(WORKING_PATH, "tudthemes", "themes"), files)
 
 
 setuptools.setup(
     name="tudthemes",
-    version="0.0.5",
+    version="0.0.7",
     author="Arne-Lukas Fietkau",
     author_email="arne-lukas.fietkau@tu-dresden.de",
     description="TU Dresden Corporate Design for Jupyter Notebooks",
@@ -40,7 +45,7 @@ setuptools.setup(
         'Tracker': 'https://github.com/TUD-STKS/tud-themes/issues',
     },
     package_dir={'tudthemes': 'tudthemes'},
-    package_data = {"tudthemes": list_files},
+    package_data={"tudthemes": files},
     include_package_data=True,
     python_requires='>=3.7',
 )

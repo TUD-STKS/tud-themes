@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+@import "common.css";
 
 /* Change code font */
 .CodeMirror pre {
@@ -151,7 +151,7 @@ div#notebook {
 
 #ipython_notebook img{                                                                                        
     display:block;
-    background: url(./Logo_TU_Dresden.svg);
+/* img url is imported through common.css */
 	background-repeat: no-repeat;
     background-size: contain;
     width: 233px;

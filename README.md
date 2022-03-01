@@ -1,4 +1,3 @@
 # tud-themes
 
-This package provides the Corporate Design of TU Dresden in a custom.css to use
-it for Jupyter Notebooks.
+This package provides stylesheets for Jupyter Notebooks inspired by the corporate design of TU Dresden.

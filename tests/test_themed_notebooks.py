@@ -2,6 +2,6 @@
 import tudthemes
 
 if __name__ == '__main__':
-    theme = 'dark'
+    theme = 'bright'
     working_dir = None
     tudthemes.start_notebook(theme_select=theme, notebook_dir=working_dir)

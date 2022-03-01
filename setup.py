@@ -28,6 +28,10 @@ setuptools.setup(
     version="0.0.7",
     author="Arne-Lukas Fietkau",
     author_email="arne-lukas.fietkau@tu-dresden.de",
+    license='MIT',
+    install_requires=[
+        'jupyterlab'
+        ],
     description="TU Dresden Corporate Design for Jupyter Notebooks",
     long_description=long_description,
     long_description_content_type="text/markdown",

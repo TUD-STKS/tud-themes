@@ -54,7 +54,8 @@ setuptools.setup(
     python_requires='>=3.7',
     entry_points={
         'console_scripts': [
-            'tud-themes-notebook = tudthemes.start_notebook:start_notebook',
+            'tud-themes-notebook = '
+            'tudthemes.start_notebook:start_notebook_from_cli',
         ]
     }
 )

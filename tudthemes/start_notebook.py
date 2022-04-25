@@ -5,6 +5,22 @@ from .get_address import get_address
 from .create_common_stylesheet import create_common_stylesheet
 
 
+def start_notebook_from_cli():
+    """
+    Entry point from the command line.
+
+    Starts a themed Jupyter notebook server
+    """
+    import sys
+
+    path = os.getcwd()
+    try:
+        theme = sys.argv[1]
+    except IndexError:
+        theme = 'bright'
+    start_notebook(theme, path)
+
+
 def start_notebook(theme_select='bright', notebook_dir=None):
     """
     A jupyter notebook server at the folder 'notebook_dir' with one of the

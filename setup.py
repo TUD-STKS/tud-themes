@@ -25,7 +25,7 @@ search_files(os.path.join(WORKING_PATH, "tudthemes", "themes"), files)
 
 setuptools.setup(
     name="tudthemes",
-    version="0.1",
+    version="0.1.1",
     author="Arne-Lukas Fietkau",
     author_email="arne-lukas.fietkau@tu-dresden.de",
     license='MIT',
@@ -52,4 +52,9 @@ setuptools.setup(
     package_data={"tudthemes": files},
     include_package_data=True,
     python_requires='>=3.7',
+    entry_points={
+        'console_scripts': [
+            'tud-themes-notebook = tudthemes.start_notebook:start_notebook',
+        ]
+    }
 )
